@@ -3,17 +3,19 @@ import {
     StyleSheet,
     View,
     Text,
-    useWindowDimensions
+    useWindowDimensions,
 } from 'react-native';
 
 interface Prop {
+    color: string,
     value: string
 }
 
-const Tile: FC<Prop> = ({ value }) => {
+const Tile: FC<Prop> = ({ color, value }) => {
     const width: number = (useWindowDimensions().width - 100) / 3;
+
     return (
-        <View style={[styles.container, { width, height: width }]}>
+        <View style={[styles.container, { backgroundColor: color, width, height: width }]}>
             <Text style={styles.content}>{value}</Text>
         </View>
     )
@@ -21,14 +23,14 @@ const Tile: FC<Prop> = ({ value }) => {
 
 const styles = StyleSheet.create({
     container: {
-        alignItems:'center',
+        alignItems: 'center',
         justifyContent: 'center',
         margin: 2,
-        elevation: 2,
     },
     content: {
-        fontSize: 34,
+        fontSize: 38,
         fontWeight: 'bold',
+        color: '#1284ff'
     }
 })
 
